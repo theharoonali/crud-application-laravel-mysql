@@ -45,7 +45,7 @@ class sample extends Controller
     }
     public function edit($id){
         $customer = Customer::find($id);
-        $title = "Update Customer Form";
+        $title = "Update Customer Form!";
         $url = url('/view/update').'/'.$id;
         $obj = array($customer->firstname,$customer->lastname,$customer->email,$customer->phoneno,$customer->comments,$customer->gender);
         $data = compact('obj','url','title');

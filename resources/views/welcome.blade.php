@@ -41,8 +41,8 @@
         <input class="form-control mb-3 rounded" placeholder="name@example.com" name="Email" type="email" value="{{$obj[2]}}">
         </div>
       <div class="col-md-3">
-        <label for="PhoneNo" class="form-label">Phone Number</label>
-        <input class="form-control mb-3 rounded " name="PhoneNo" type="tel" placeholder="03001234567" pattern="[0-9]{11}" value="{{$obj[3]}}">
+        <label for="PhoneNo" class="form-label">Phone Number (+92)</label>
+        <input class="form-control mb-3 rounded " name="PhoneNo" type="tel" placeholder="3001234567" pattern="[0-9]{10}" value="{{$obj[3]}}">
        </div>
      </div>
 
@@ -57,18 +57,15 @@
        <div class="row">
         <div class="col-md-3 mb-3">
           <div class="form-check form-check-inline">
-            {{($obj[5]=="Male") ? 'checked' : ""}}
-            <input class="form-check-input" type="radio" name="Gender" id="" value="Male">  
+            <input class="form-check-input" type="radio" name="Gender" id="" value="Male" {{($obj[5]=="Male")? 'checked' : ''}}>  
             <label class="form-check-label" for="Male">Male</label>
           </div>
           <div class="form-check form-check-inline">            
-            {{$obj[5]=="Female" ? 'checked' : ""}}
-            <input class="form-check-input" type="radio" name="Gender" id="" value="Female">
+            <input class="form-check-input" type="radio" name="Gender" id="" value="Female" {{$obj[5]=="Female" ? 'checked' : ''}}>
             <label class="form-check-label" for="Female">Female</label>
-          </div>
+          </div> 
           <div class="form-check form-check-inline">
-            {{$obj[5]=="Other" ? 'checked' : ""}}
-            <input class="form-check-input" type="radio" name="Gender" id="" value="Other">
+            <input class="form-check-input" type="radio" name="Gender" id="" value="Other" {{$obj[5]=="Other" ? 'checked' : ''}}>
             <label class="form-check-label" for="Other">Other</label>
           </div>
         </div>
