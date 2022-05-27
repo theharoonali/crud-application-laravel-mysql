@@ -24,11 +24,16 @@ class sample extends Controller
         $data = compact('title','url','obj');
         return view('welcome')->with($data);}
     }
-    public function view(){
+    public function view(Request $req){
         if(Session::has('LoggedUser')){
-            $customer = Customer::all();
+            $search = $req['search']??"";
+            if($search != ""){
+                $customer = Customer::where('firstname','LIKE',"%$search%")->orwhere('lastname','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->paginate(6);
+            }else{
+                $customer = Customer::paginate(6);
+            }
             $daata = User::where('id','=', Session::get('LoggedUser'))->first();
-            $data = compact('daata','customer');
+            $data = compact('daata','customer','search');
             return view('view')->with($data);
         }else{
             return redirect('/');

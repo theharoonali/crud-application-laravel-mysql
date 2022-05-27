@@ -4,7 +4,7 @@
   <body class="bg-light ">
     <div class="container mt-5" >
 
-      <h2 class="text-center mb-5">{{$title}}<a href="{{url('/view')}}">@if(Session::has('LoggedUser'))<button class="btn btn-dark float-end" >View</button>@endif</a></h2>
+      <h2 class="text-center mb-5">{{$title}}<a href="{{url('view')}}">@if(Session::has('LoggedUser'))<button class="btn btn-dark float-end" >View</button>@endif</a></h2>
 
      <form action="{{$url}}" method="POST">
       @csrf
