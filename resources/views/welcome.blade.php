@@ -4,7 +4,7 @@
   <body class="bg-light ">
     <div class="container mt-5" >
 
-      <h2 class="text-center mb-5">{{$title}}<a href="{{url('view')}}">@if(Session::has('LoggedUser'))<button class="btn btn-dark float-end" >View</button>@endif</a></h2>
+      <h2 class="text-center mb-5">{{$title}}<a href="{{url('view')}}">@if(Session::has('LoggedUser'))<button class="font-weight-bold btn btn-dark float-end" >View</button>@endif</a></h2>
 
      <form action="{{$url}}" method="POST">
       @csrf
@@ -20,7 +20,7 @@
      </div>
 
       <div class="row">
-       <div class="col-md-9">
+       <div class="col-md-6">
         <label for="Email" class="form-label">Email</label>
         <!-- Laravel Missing Field Hadndling -->
         <span class="text-danger">
@@ -30,6 +30,23 @@
         </span>
         <input class="form-control mb-3 rounded" placeholder="name@example.com" name="Email" type="email" value="{{$obj[2]}}">
         </div>
+        <div class="col-md-3">
+          <label for="company_id" class="form-label">Company</label>
+          <!--<input class="form-control mb-3 rounded " name="company_id" type="tel" placeholder="Company" value="{$obj[6]}}">-->
+          <select class="form-select" aria-label="Default select example" name="company_id" >
+            <option selected disabled>Select Company</option>
+            @foreach($company as $company)
+            <option value="{{$company->company_id}}" {{($obj[6]==$company->company_id)? 'selected' : ''}}>ID:{{$company->company_id}} - <strong>{{$company->companyname}}</strong></option>
+            @endforeach
+          </select>
+          <span class="text-danger">
+            @error('company_id')
+                {{$message}}
+            @enderror
+          </span>
+         </div>
+
+         
       <div class="col-md-3">
         <label for="PhoneNo" class="form-label">Phone Number (+92)</label>
         <input class="form-control mb-3 rounded " name="PhoneNo" type="tel" placeholder="3001234567" pattern="[0-9]{10}" value="{{$obj[3]}}">

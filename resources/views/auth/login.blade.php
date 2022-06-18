@@ -39,11 +39,6 @@
                                 <button type="submit" class="btn btn-dark btn-block">Signin</button>
                             </div>
                         </form>
-                        <h5 class="text-center text-success m-2"> or </h5>
-                        <a href="{{route('home')}}" class="text-decoration-none"><div class="d-grid mx-auto">
-                            <button class="btn btn-block btn-success">Submit Form without Login</button>
-                        </div></a>
-
                     </div>
                 </div>
             </div>
